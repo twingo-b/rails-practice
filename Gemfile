@@ -38,6 +38,10 @@ group :development, :test do
 end
 
 group :development do
+  # https://blog.dakatsuka.jp/2011/05/14/hirb-rails-console.html
+  gem 'hirb'
+  gem 'hirb-unicode'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
