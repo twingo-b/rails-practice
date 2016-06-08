@@ -1,0 +1,11 @@
+= form_for(@user) do |f|
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :department
+    %br/
+    = f.text_field :department
+  .actions
+    = f.submit

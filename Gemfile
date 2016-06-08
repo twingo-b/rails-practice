@@ -32,12 +32,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Haml
+# http://morizyun.github.io/blog/beginner-rails-tutorial-haml/
+gem 'haml-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
 
 group :development do
+  # http://qiita.com/hkusu/items/acd487eec4bbfc9fed2f
+  gem 'erb2haml'
+
   # http://ruby-rails.hatenadiary.com/entry/20141024/1414081224#pry-install
   gem 'pry-rails'
   gem 'pry-doc'
