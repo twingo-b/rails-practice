@@ -38,6 +38,16 @@ group :development, :test do
 end
 
 group :development do
+  # http://ruby-rails.hatenadiary.com/entry/20141024/1414081224#pry-install
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+
+  # https://blog.dakatsuka.jp/2011/05/14/hirb-rails-console.html
+  gem 'hirb'
+  gem 'hirb-unicode'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
