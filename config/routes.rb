@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :blogs
-  resources :entries
+  resources :blogs do
+    resources :entries
+  end
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
