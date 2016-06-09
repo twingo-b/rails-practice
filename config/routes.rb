@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :blogs do
-    resources :entries
+    resources :entries, only: [:show, :new, :edit, :create, :update, :destroy]
   end
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
