@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :blogs do
     resources :entries, only: [:show, :new, :edit, :create, :update, :destroy] do
-      resources :comments, only: [:show, :new, :edit, :create, :update, :destroy] do
+      resources :comments, only: [:create, :destroy] do
         member do
           patch 'approve'
         end
