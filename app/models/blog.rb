@@ -1,3 +1,4 @@
 class Blog < ActiveRecord::Base
-  has_many :entries
+  validates :title, :presence => true
+  has_many :entries, :dependent => :destroy
 end

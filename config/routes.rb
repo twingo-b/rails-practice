@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  resources :entries
-  # resources :users, only: %i(index new create)
+  resources :blogs do
+    resources :entries, only: [:show, :new, :edit, :create, :update, :destroy] do
+      resources :comments, only: [:create, :destroy] do
+        member do
+          patch 'approve'
+        end
+      end
+    end
+  end
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
