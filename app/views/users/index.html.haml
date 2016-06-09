@@ -1,0 +1,16 @@
+%h1 利用者一覧
+%table
+  %thead
+    %tr
+      %th 氏名
+      %th 部署
+      %th 編集
+      %th 削除
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.name, user_path(user)
+        %td= user.department
+        %td= link_to '編集', edit_user_path(user)
+        %td= link_to '削除', user_path(user), method: 'DELETE'
+= link_to '新規ユーザ登録', new_user_path
