@@ -39,6 +39,10 @@ gem 'haml-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # http://tech.gmo-media.jp/post/45955244694/
+  gem "rspec"
+  gem "rspec-rails"
 end
 
 group :development do
