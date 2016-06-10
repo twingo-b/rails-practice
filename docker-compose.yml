@@ -5,9 +5,15 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "passwd"
 
+  mailcatcher:
+    image: zolweb/docker-mailcatcher
+    ports:
+      - "1080:1080"
+
   rails:
     depends_on:
       - mysql
+      - mailcatcher
     build: .
     command:
       [ "bash", "-c", "rm -f tmp/pids/server.pid; ./bin/rails server -b 0.0.0.0" ]
