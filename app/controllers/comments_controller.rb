@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        Comments.post_notification(@blog, @entry, @comment).deliver_now
         format.html { redirect_to blog_entry_path(@blog, @entry), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
