@@ -16,6 +16,24 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+# http://unageanu.hatenablog.com/entry/2015/03/22/144950
+require 'simplecov'
+
+dir = File.join(ENV['WERCKER_REPOwRT_ARTIFACTS_DIR'] || 'build', 'coverage')
+SimpleCov.coverage_dir(dir)
+
+if ENV['CI']
+  require 'codeclimate-test-reporter'
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+                                                                     SimpleCov::Formatter::HTMLFormatter,
+                                                                     CodeClimate::TestReporter::Formatter])
+  SimpleCov.start 'rails'
+  CodeClimate::TestReporter.start
+else
+  SimpleCov.start 'rails'
+end
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -40,8 +58,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
 =begin
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with

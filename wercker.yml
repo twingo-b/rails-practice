@@ -1,0 +1,33 @@
+box: ruby:2.3.1
+
+services:
+  - name: mysql
+    id: mysql:5.7
+    env:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ENV_MYSQL_PASSWORD
+      MYSQL_DATABASE: $MYSQL_ENV_MYSQL_DATABASE
+
+build:
+    steps:
+      - install-packages:
+          packages: nodejs mysql-client
+
+      - bundle-install
+
+      - rails-database-yml:
+          service: mysql-docker
+
+      - script:
+          name: echo ruby information
+          code: |
+              echo "ruby version $(ruby --version) running"
+              echo "from location $(which ruby)"
+              echo -p "gem list: $(gem list)"
+
+      - script:
+          name: Set up db
+          code: RAILS_ENV=test bundle exec rake db:schema:load
+
+      - script:
+          name: rspec
+          code: bundle exec rspec

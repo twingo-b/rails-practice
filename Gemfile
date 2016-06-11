@@ -66,3 +66,8 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  # http://unageanu.hatenablog.com/entry/2015/03/22/144950
+  gem 'simplecov', require: false
+  gem 'codeclimate-test-reporter', require: false
+end

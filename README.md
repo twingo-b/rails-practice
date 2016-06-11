@@ -1,1 +1,3 @@
 # rails-practice
+
+[![Code Climate](https://codeclimate.com/github/twingo-b/rails-practice/badges/gpa.svg)](https://codeclimate.com/github/twingo-b/rails-practice) [![Test Coverage](https://codeclimate.com/github/twingo-b/rails-practice/badges/coverage.svg)](https://codeclimate.com/github/twingo-b/rails-practice/coverage) [![wercker status](https://app.wercker.com/status/4b21481ab2c04b61ed9e05258d6e709e/s "wercker status")](https://app.wercker.com/project/bykey/4b21481ab2c04b61ed9e05258d6e709e)
