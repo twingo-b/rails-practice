@@ -2,7 +2,7 @@ class Entry < ActiveRecord::Base
   validates :title, :presence => true
   validates :body, :presence => true
 
-  belongs_to :blogs
+  belongs_to :blog
   has_many :comments, :dependent => :destroy
 
   scope :where_entry_not_exists, lambda {

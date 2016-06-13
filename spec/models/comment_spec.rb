@@ -1,22 +1,45 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  describe "#status" do
-    it "statusの初期値にunapprovedがセットされていること" do
-      comment = Comment.new(body: 'Body')
-      expect(comment.status).to eq 'unapproved'
+  it 'bodyがあれば有効な状態であること' do
+    comment = build(:comment)
+    expect(comment.valid?).to be_truthy
+  end
+
+  it 'bodyがなければ無効な状態であること' do
+    comment = build(:comment, body: nil)
+    expect(comment.valid?).to be_falsey
+  end
+
+  describe '#status' do
+    context 'commentが新規作成の時' do
+      it 'statusの初期値にunapprovedがセットされていること' do
+        comment = build(:comment)
+        expect(comment.status).to eq 'unapproved'
+      end
     end
 
-    it "すでに存在しているstatusが書き換わらないこと" do
-      comment = Comment.create(body: 'Body', status: 'approved')
-      expect(Comment.find(comment.id).status).to eq 'approved'
+    context 'commentが作成済みの時' do
+      it 'statusが書き換わらないこと' do
+        comment = create(:approved_comment)
+        expect(Comment.find(comment.id).status).to eq 'approved'
+      end
     end
   end
 
-  describe "mask_unapproved_body" do
-    it "statusがunapprovedの時は、マスク済みのbodyを取得する" do
-      comment = Comment.new(body: 'Body')
-      expect(comment.mask_unapproved_body).to eq '(承認待ち)'
+  describe '#mask_unapproved_body' do
+    context 'statusがunapprovedの時' do
+      it 'マスク済みのbodyを返す' do
+        comment = build(:comment)
+        expect(comment.mask_unapproved_body).to eq '(承認待ち)'
+      end
+    end
+
+    context 'statusがapprovedの時' do
+      it 'bodyをそのまま返す' do
+        comment = build(:approved_comment)
+        expect(comment.mask_unapproved_body).to eq 'Approved Body'
+      end
     end
   end
 end
