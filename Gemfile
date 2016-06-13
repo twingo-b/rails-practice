@@ -40,9 +40,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # http://tech.gmo-media.jp/post/45955244694/
-  gem "rspec"
-  gem "rspec-rails"
+  # Everyday Rails RSpec
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -67,6 +68,13 @@ group :development do
 end
 
 group :test do
+  # Everyday Rails RSpec
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+
   # http://unageanu.hatenablog.com/entry/2015/03/22/144950
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
