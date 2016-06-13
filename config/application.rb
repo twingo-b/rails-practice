@@ -24,6 +24,7 @@ module App
     config.active_record.raise_in_transactional_callbacks = true
 
     config.generators do |g|
+      # Everyday Rails RSpec
       g.test_framework :rspec,
                        fixtures: true,
                        view_specs: false,
