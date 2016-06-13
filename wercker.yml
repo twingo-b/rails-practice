@@ -12,6 +12,10 @@ build:
       - install-packages:
           packages: nodejs mysql-client
 
+      - script:
+          name: Update bundler
+          code: gem install bundler
+
       - bundle-install
 
       - rails-database-yml:
