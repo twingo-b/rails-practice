@@ -3,9 +3,9 @@ FactoryGirl.define do
     body 'Body'
 
     entry
-  end
 
-  trait :approved do
-    status 'approved'
+    trait :approved do
+      status 'approved'
+    end
   end
 end
