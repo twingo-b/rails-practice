@@ -21,7 +21,7 @@ RSpec.describe Comment, type: :model do
 
     context 'commentが作成済みの時' do
       it 'statusが書き換わらないこと' do
-        comment = create(:approved_comment)
+        comment = create(:comment, :approved)
         expect(Comment.find(comment.id).status).to eq 'approved'
       end
     end
@@ -37,8 +37,8 @@ RSpec.describe Comment, type: :model do
 
     context 'statusがapprovedの時' do
       it 'bodyをそのまま返す' do
-        comment = build(:approved_comment)
-        expect(comment.mask_unapproved_body).to eq 'Approved Body'
+        comment = build(:comment, :approved)
+        expect(comment.mask_unapproved_body).to eq 'Body'
       end
     end
   end
