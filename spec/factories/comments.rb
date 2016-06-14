@@ -5,10 +5,7 @@ FactoryGirl.define do
     entry
   end
 
-  factory :approved_comment, :class => 'Comment' do
-    body 'Approved Body'
+  trait :approved do
     status 'approved'
-
-    entry
   end
 end
