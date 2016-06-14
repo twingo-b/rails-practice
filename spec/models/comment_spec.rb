@@ -38,7 +38,7 @@ RSpec.describe Comment, type: :model do
     context 'statusがapprovedの時' do
       it 'bodyをそのまま返す' do
         comment = build(:comment, :approved)
-        expect(comment.mask_unapproved_body).to eq 'Body'
+        expect(comment.mask_unapproved_body).to eq comment.body
       end
     end
   end

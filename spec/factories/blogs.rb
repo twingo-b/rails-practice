@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :blog do
-    title 'Title'
+    title { generate :title }
   end
 end

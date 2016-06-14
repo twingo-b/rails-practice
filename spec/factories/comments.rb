@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    body 'Body'
+    body { generate :body }
 
     entry
 

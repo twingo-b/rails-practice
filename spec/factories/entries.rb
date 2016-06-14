@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :entry do
-    title 'Title'
-    body 'Body'
+    title { generate :title }
+    body { generate :body }
 
     blog
   end
