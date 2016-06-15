@@ -23,4 +23,33 @@ RSpec.feature 'Blogs', type: :feature do
     expect(current_path).to eq blog_path(Blog.first.id)
     expect(page).to have_content 'Blog was successfully created.'
   end
+
+  scenario 'Blogの削除時の確認をCancelした場合はデータが削除されないこと', js: true do
+    create(:blog)
+
+    visit blogs_path
+
+    expect {
+      dismiss_confirm do
+        click_link 'Destroy'
+      end
+    }.to change(Blog, :count).by(0)
+
+    expect(current_path).to eq blogs_path
+  end
+
+  scenario 'Blogの削除時の確認をOKした場合はデータが削除され一覧に遷移すること', js: true do
+    create(:blog)
+
+    visit blogs_path
+
+    expect {
+      accept_confirm do
+        click_link 'Destroy'
+      end
+    }.to change(Blog, :count).by(-1)
+
+    expect(current_path).to eq blogs_path
+    expect(page).to have_content 'Blog was successfully destroyed.'
+  end
 end

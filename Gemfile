@@ -74,9 +74,9 @@ end
 group :test do
   # Everyday Rails RSpec
   gem 'capybara'
+  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'selenium-webdriver'
 
   # http://unageanu.hatenablog.com/entry/2015/03/22/144950
   gem 'simplecov', require: false
