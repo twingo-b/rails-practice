@@ -10,7 +10,16 @@ services:
 build:
     steps:
       - install-packages:
-          packages: nodejs mysql-client
+          packages: nodejs mysql-client fonts-ipaexfont-gothic
+
+      - script:
+          name: Install PhantomJS
+          code: |
+            cd /tmp
+            wget -O phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2
+            tar jxf phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2
+            mv phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+            rm -rf phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 phantomjs-$PHANTOMJS_VERSION-linux-x86_64
 
       - script:
           name: Update bundler
