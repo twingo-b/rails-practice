@@ -82,3 +82,10 @@ group :test do
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
 end
+
+# https://devcenter.heroku.com/articles/getting-started-with-rails4
+gem 'puma'
+group :production do
+  gem 'rails_12factor'
+end
+ruby '2.3.1'
