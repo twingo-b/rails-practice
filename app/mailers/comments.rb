@@ -11,7 +11,7 @@ class Comments < ApplicationMailer
     @comment = comment
 
     mail(
-        to: "admin@example.com",
+        to: ENV['MAIL_TO'] || "admin@example.com",
         subject: "新しいコメントが登録されました"
     ) do |format|
       format.text
