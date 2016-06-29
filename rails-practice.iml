@@ -15,6 +15,10 @@
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/_builds" />
+      <excludeFolder url="file://$MODULE_DIR$/_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/_projects" />
+      <excludeFolder url="file://$MODULE_DIR$/_steps" />
       <excludeFolder url="file://$MODULE_DIR$/components" />
       <excludeFolder url="file://$MODULE_DIR$/public/system" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
