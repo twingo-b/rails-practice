@@ -5,10 +5,9 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-RUN gem install bundler
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/
-RUN bundle install
+RUN bundle install -j4
 
 COPY . /usr/src/app
 
